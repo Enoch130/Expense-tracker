@@ -12,7 +12,10 @@ from typing import List
 
 transaction_route = APIRouter(prefix="/transactions",tags=["Transactions Route"])
 
-@transaction_route.post("/create_transaction")
+
+
+
+@transaction_route.post("/create_transaction")  
 async def create_transaction(transaction:TransactionIn,db:Session=Depends(get_db)):
     # verify if the user exists before proceeding
     user = fetch_user_by_id(id=transaction.owner_id,dbase=db)
