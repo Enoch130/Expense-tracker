@@ -59,5 +59,3 @@ class TransactionOut(BaseModel):
     type:str
     cost:float
     medium:str
-    date_created:datetime
-    date_of_transaction:datetime

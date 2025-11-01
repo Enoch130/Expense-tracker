@@ -30,7 +30,7 @@ async def create_transaction(transaction:TransactionIn,db:Session=Depends(get_db
     return new_transaction
 
 # endpoint to fetch all transactions of a user by their id
-@transaction_route.get("/get_all_user_transactions",response_model=TransactionOut)
+@transaction_route.get("/get_all_user_transactions",response_model=List[TransactionOut])
 async def get_transactions(id:UUID,db:Session=Depends(get_db)):
     db_user = fetch_user_by_id(id=id, dbase=db)
     db_transctions = db.query(Transaction).filter(Transaction.owner_id == id).all()
