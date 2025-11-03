@@ -37,3 +37,9 @@ async def get_transactions(id:UUID,db:Session=Depends(get_db)):
     db_user = fetch_user_by_id(id=id, dbase=db)
     db_transctions = db.query(Transaction).filter(Transaction.owner_id == id).all()
     return db_transctions
+
+@transaction_route.delete("/delete_all_user_transactions",response_model=List[TransactionOut])
+async def get_transactions(id:UUID,db:Session=Depends(get_db)):
+    db_user = fetch_user_by_id(id=id, dbase=db)
+    db_transctions = db.query(Transaction).filter(Transaction.owner_id == id).all()
+    return db_transctions
