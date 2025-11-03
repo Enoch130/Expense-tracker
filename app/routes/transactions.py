@@ -6,6 +6,7 @@ from app.db_models import User,Transaction
 from operations import fetch_user_by_id
 from uuid import UUID
 from typing import List
+from datetime import datetime
 
 
 
@@ -37,7 +38,10 @@ async def create_transaction(transaction:TransactionIn,db:Session=Depends(get_db
 async def get_transactions(id:UUID,db:Session=Depends(get_db)):
     db_user = fetch_user_by_id(id=id, dbase=db)
     db_transctions = db.query(Transaction).filter(Transaction.owner_id == id).all()
+    created_at = datetime
     return db_transctions
+
+
 
 
 @transaction_route.delete("/delete_transaction",response_model=List[TransactionOut])
