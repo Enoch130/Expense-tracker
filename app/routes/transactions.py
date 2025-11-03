@@ -29,6 +29,8 @@ async def create_transaction(transaction:TransactionIn,db:Session=Depends(get_db
     db.refresh(new_transaction)
     return new_transaction
 
+
+
 # endpoint to fetch all transactions of a user by their id
 @transaction_route.get("/get_all_user_transactions",response_model=List[TransactionOut])
 async def get_transactions(id:UUID,db:Session=Depends(get_db)):
