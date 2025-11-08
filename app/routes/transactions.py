@@ -33,6 +33,8 @@ async def create_transaction(transaction:TransactionIn,db:Session=Depends(get_db
     db.refresh(new_transaction)
     return new_transaction
 
+
+
 # endpoint to fetch all transactions of a user by their id
 @transaction_route.get("/get_all_user_transactions",response_model=List[TransactionOut])
 async def get_transactions(id:UUID,db:Session=Depends(get_db)):
@@ -41,6 +43,7 @@ async def get_transactions(id:UUID,db:Session=Depends(get_db)):
     created_at = datetime
     return db_transctions
 
+<<<<<<< HEAD
 
 
 
@@ -49,3 +52,10 @@ async def get_transactions(id:UUID,db:Session=Depends(get_db)):
     db_user = fetch_user_by_id(id=id, dbase=db)
     db_transctions = db.query(Transaction).filter(Transaction.owner_id == id).all()
     return db_transctions
+=======
+@transaction_route.delete("/delete_all_user_transactions",response_model=List[TransactionOut])
+async def get_transactions(id:UUID,db:Session=Depends(get_db)):
+    db_user = fetch_user_by_id(id=id, dbase=db)
+    db_transctions = db.query(Transaction).filter(Transaction.owner_id == id).all()
+    return db_transctions
+>>>>>>> e3f636163b0142981d970943dd1d45ebdf616b6b
