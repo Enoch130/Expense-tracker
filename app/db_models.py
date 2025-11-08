@@ -24,6 +24,12 @@ class User(Base):
     transactions = relationship("Transaction", back_populates="owner")
 
 
+
+
+
+
+# gklfv
+
 # transaction model
 class Transaction(Base):
     __tablename__ = "transactions"
