@@ -13,6 +13,10 @@ def get_db():
     finally:
         db.close() 
 
+
+
+        #hjgd
+
 # function to fetch the user by his/her id
 def fetch_user_by_id(id:UUID,dbase:Session):
     db_user = dbase.query(User).filter(User.id == id).first()
