@@ -24,14 +24,6 @@ class User(Base):
     transactions = relationship("Transaction", back_populates="owner")
 
 
-
-
-# fkdg
-#kf
-
-# gklfv
-
-# transaction model
 class Transaction(Base):
     __tablename__ = "transactions"
     id = Column(UUID(as_uuid=True),primary_key=True,index = True,default=uuid.uuid4)
