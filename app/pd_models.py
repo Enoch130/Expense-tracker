@@ -53,9 +53,6 @@ class TransactionIn(BaseModel):
     owner_id:UUID
     medium:str
 
-
-    #fhjjf
-
 class TransactionOut(BaseModel):
     title:str
     description:str

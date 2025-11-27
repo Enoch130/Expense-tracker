@@ -61,7 +61,6 @@ async def get_user_by_id(db:Session = Depends(get_db)):
     users = db.query(User).all()
     return users
 
-# new
 # update items in the backend
 @user_route.put("/update_phoneNumber",response_model=UserOut)
 async def update_phone_number(user:UserPhoneIn,db:Session=Depends(get_db)):
